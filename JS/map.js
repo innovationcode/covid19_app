@@ -5,18 +5,26 @@ var locationSelect;
 
 //Google map initialize
 function initMap() {
-    var mumbai = {lat: 19.0760, lng: 72.8777};
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: mumbai,
-        zoom: 5,
-    })
-    setTimeout(function() {
+    
+    var loading = document.getElementsByClassName('loading');
+    loading.className = 'show'
+
+    setTimeout(function() { 
+        var mumbai = {lat: 19.0760, lng: 72.8777};
+        map = new google.maps.Map(document.getElementById('map'), {
+            center: mumbai,
+            zoom: 5,
+        })
         console.log(country_Data);
         showMarkers();  
         infoWindow = new google.maps.InfoWindow();
-    }, 1000);
-}
+    }, 2500);
 
+    var countryName = document.getElementById('country-name-input').value;
+    if(countryName) {
+        searchCountry(countryName);
+    }
+}
 function showMarkers() {
     country_Data.forEach(function(country) {
         var latLng = new google.maps.LatLng(
@@ -42,25 +50,26 @@ function createMarker(latlng, country_code, name, confirmed, recovered, dead, up
     };
         
     var html = `
-                <div class = "country-info-window">
-                    <div style = "    color: #fa5a54; font-size: 25px; font-weight: bold; margin-bottom: 5px;">
-                        ${name}
-                    </div>
-                    <div style = "font-size: 14px; margin-bottom : 5px; margin-right:7px;">
-                        Updated On : ${updatedOn}
-                    </div>
-                    <div style = "border: 0.6px solid black; margin-bottom: 4px;"></div>
-                    <div style = "font-size: 18px; margin-bottom : 5px;">
-                        Total cases : ${confirmed}
-                    </div>
-                    <div style = "font-size: 18px; margin-bottom : 5px;">
-                        Recovered : ${recovered}
-                    </div>
-                    <div style = "font-size: 18px; color: #fa5a54;">
-                        Death : ${dead}
-                    </div>
+            <div class = "country-info-window">
+                <div style = "    color: #fa5a54; font-size: 25px; font-weight: bold; margin-bottom: 5px;">
+                    ${name}
                 </div>
-                `;
+                <div style = "font-size: 14px; margin-bottom : 5px; margin-right:7px;">
+                    Updated On : ${updatedOn}
+                </div>
+                <div style = "border: 0.6px solid black; margin-bottom: 4px;"></div>
+                <div style = "font-size: 18px; margin-bottom : 5px;">
+                    Total cases : ${confirmed}
+                </div>
+                <div style = "font-size: 18px; margin-bottom : 5px;">
+                    Recovered : ${recovered}
+                </div>
+                <div style = "font-size: 18px; color: #fa5a54;">
+                    Death : ${dead}
+                </div>
+            </div>
+            `;
+
     
     var marker = new google.maps.Marker({
         map: map,

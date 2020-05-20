@@ -72,3 +72,8 @@ async function worldCount() {
                         `;
         }, 1000);
 }
+
+function buttonClick() {
+        var globalInfoWindow = document.getElementById('global-info')
+        globalInfoWindow.style.display = 'none';
+}

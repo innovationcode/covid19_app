@@ -21,3 +21,29 @@ body {
     top: 40px;
     left: 80px;
 }
+
+
+.loading {
+    border: 10px solid #f3f3f3;
+    border-radius: 50%;
+    border-top: 10px solid gray;
+    border-right: 10px solid gray;
+    border-bottom: 10px solid grey;
+    border-left: 10px dotted dashed solid double grey;
+    width: 85px;
+    height: 85px;
+    -webkit-animation: spin 1s linear infinite;
+    animation: spin 2s linear infinite;
+    position: absolute;
+    top: 40%;
+    left: 50%;   
+}
+      
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#loading.show {
+    visibility: visible;
+}

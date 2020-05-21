@@ -6,12 +6,15 @@
         <title>Covid-19_app</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" type="text/css" media="screen" href="./style/style.css">
-        
         <script src="https://kit.fontawesome.com/c939d0e917.js"></script>
     </head>
 
     <body onclick="playAudio()">
-
+        <audio loop id="myAudio">
+            <source src="music.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+        
         <!-- page ploader -->
         <div class = "loading">
             
@@ -26,11 +29,15 @@
         </div>
         <div id = "global-info"></div> 
 
+         <!-- SEARCH -->
+         <div class = "search-container"> 
+            <div class = "search">
+                <input id = 'country-name-input' type="text" placeholder='Enter country name'>
+                <i class="fas fa-search" onclick = "searchCountry()"></i>
+            </div>
+        </div>
+
         
-        <audio loop id="myAudio">
-            <source src="music.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
         <div id = "map"></div>
 
         <script src="./JS/index.js"></script>

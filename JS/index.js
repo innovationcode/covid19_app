@@ -40,8 +40,10 @@ async function worldCount() {
                 }
         });
         setTimeout(function() {
+                var globalInfoWindow = document.getElementById('global-info');
+                globalInfoWindow.style.display = 'block';
                 console.log("WWWW  : ", worldCount)
-                document.getElementById('global-info').innerHTML = 
+                globalInfoWindow.innerHTML = 
                         `<div class = "global-info-window">
                                 <h1>
                                         Total affected countries : ${worldCount.total_affected_countries}
@@ -70,7 +72,7 @@ async function worldCount() {
                                 <button onclick="buttonClick();"> Close </button>
                         </div>  
                         `;
-        }, 1000);
+        }, 800);
 }
 
 function buttonClick() {

@@ -24,7 +24,6 @@ body {
     left: 80px;
 }
 
-
 .loading {
     border: 10px solid #f3f3f3;
     border-radius: 50%;
@@ -98,4 +97,39 @@ button:hover{
 
 button:focus {
     outline: none;
+}
+
+/*******  SEARCH  ********/
+.search-container {
+    position: absolute;
+    z-index: 100;
+    top: 130px;
+    left: 80px;
+    width: 400px;
+    height: 60px;
+    background-color: rgb(88, 78, 84, 0.9);
+    transition: color 0.2s ease;
+    border-radius: 44px;
+    display: flex;
+}
+
+.search-container input {
+    width: 100%;
+    font-size: 25px;
+    background-color: transparent;
+    border: none;
+    color: white;
+}
+
+input:focus {
+    outline: none;
+}
+
+input:focus::-webkit-input-placeholder
+{
+    color: azure;
+}
+
+input::placeholder { /* Most modern browsers support this now. */
+    color: #c85b57;
 }

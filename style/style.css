@@ -133,3 +133,18 @@ input:focus::-webkit-input-placeholder
 input::placeholder { /* Most modern browsers support this now. */
     color: #c85b57;
 }
+
+.search {
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.search i {
+    font-size: 25px;
+    color: white;
+    cursor: pointer;
+}
+

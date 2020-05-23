@@ -148,3 +148,87 @@ input::placeholder { /* Most modern browsers support this now. */
     cursor: pointer;
 }
 
+
+/***** store-list-container *******/
+.country-list-container {
+    position: absolute;
+    background: white;
+    width: 400px;
+    z-index: 100;
+    top: 210px;
+    left: 80px;
+    /* bottom: 20px; */
+    border-radius: 30px;
+    display: none;
+    /* display: flex; */
+    overflow: hidden; /* to make scrollbar height matching outer container overflow must be hidden*/
+    min-height: auto;
+    max-height: 72vh;
+}
+
+.country-container-background {
+    padding-left: 8px;
+    padding-right: 8px;
+    display: flex;
+    margin-top: 12px;
+    margin-bottom: 12px;
+    border-radius: 18px;
+    transition: all 0.2s ease-in-out;
+}
+
+.country-container-background:hover {
+    background-color: rgb(231, 211, 211);
+}
+
+.country-container {
+    border-bottom: 1px solid black;
+}
+
+.country-list {
+    padding-left: 20px;
+    padding-right: 20px;
+    flex-grow: 1;
+    overflow-y: scroll;
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+    border: 0.5px solid grey;
+    border-radius: 40px;
+}
+::-webkit-scrollbar-thumb {
+    background: red;
+    border-radius: 30px;
+    height: 5px;
+}
+
+.country-name {
+    margin-top: 30px;
+    font-size: 21px;
+    color: #514C4C;
+}
+
+.store-phone-number {
+    font-size: 16px;
+    color: #B5ADAD;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+.store-number-container {
+    display: flex;
+    align-items: center;
+}
+
+.store-number {
+    width: 33px;
+    height: 33px;
+    background-color: rgb(243, 95, 95);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: small;
+}
+

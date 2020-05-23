@@ -107,7 +107,7 @@ function searchCountry(country) {
     
     displayCountries(foundCountry); 
 //    showMarkers(foundCountry); // will show markers on map for found satores only
-    setOnClickListener(); // onclick in store-list display area will pop up marker info on map
+  //  setOnClickListener(); // onclick in store-list display area will pop up marker info on map
 }
 
 // ************ DISPLAY STORES *************
@@ -148,4 +148,9 @@ function displayCountries(foundCountry) {
     });
     document.querySelector('.country-list-container').style.display = 'flex';
     document.querySelector('.country-list').innerHTML = countryHtml; //select element with class "stores-list" and display storeHtml there.
+}
+
+// Function to close country container displaying search results
+function closeCountryContainer() {
+    document.querySelector('.country-list-container').style.display = 'none';
 }

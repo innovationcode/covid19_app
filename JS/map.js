@@ -153,6 +153,7 @@ function displayCountries(foundCountry) {
 // Function to close country container displaying search results
 function closeCountryContainer() {
     document.querySelector('.country-list-container').style.display = 'none';
+    map.setZoom(5);
 }
 
 function setOnClickListener() {
@@ -171,7 +172,7 @@ function setOnClickListener() {
             
             new google.maps.event.trigger(markers[indexForClickCountry], 'click' );
             var bounds = new google.maps.LatLngBounds(); //bounds spreads the marker '
-            map.setCenter(bounds);
+            //map.setCenter(bounds);
             map.fitBounds(bounds);
             map.setZoom(6);
         })

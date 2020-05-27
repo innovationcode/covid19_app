@@ -158,4 +158,22 @@ function closeCountryContainer() {
 function setOnClickListener() {
     var storeElements = document.querySelectorAll('.country-container');
     console.log("setOnClickListener  :  ", storeElements)
+    storeElements.forEach(function(element, index) {
+        console.log(element, "++++++++++++++++++++++++++++++++++++++++")
+        element.addEventListener('click', function() {
+            var countryCodeFromEvent = element.querySelector('.store-number').innerHTML.toLowerCase();
+            countryCodeFromEvent = countryCodeFromEvent.replace(/\s/g, '');
+    
+            var countryForMarkerEvent = foundCountry.filter(country => country.country_code === countryCodeFromEvent);
+            console.log(countryForMarkerEvent)
+            var indexForClickCountry = country_Data.findIndex(dt => dt.country_code === countryCodeFromEvent);
+            console.log("indexForClickCountry : ", indexForClickCountry)
+            
+            new google.maps.event.trigger(markers[indexForClickCountry], 'click' );
+            var bounds = new google.maps.LatLngBounds(); //bounds spreads the marker '
+            map.setCenter(bounds);
+            map.fitBounds(bounds);
+            map.setZoom(6);
+        })
+    });
 }

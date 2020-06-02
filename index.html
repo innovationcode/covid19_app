@@ -16,23 +16,21 @@
         </audio>
         
         <!-- page ploader -->
-        <div class = "loading">
-            
-        </div>
+        <div class = "loading"> </div>
 
         <div class = "title">Covid-19 records</div>
 
         <!-- Globe to give world count -->
         <div class = "globe-gif" onclick="worldCount()">
             <img src="globe.gif" width="90px;" height="90px;" alt="globe-gif">
-            <p style = "color:bisque; font-size: 11px; margin-top: 3px;;">Virus around the world</p>
+            <p style = "font-size: 12px; margin-top: 3px; font-weight: bold;">Virus around the world</p>
         </div>
         <div id = "global-info"></div> 
 
          <!-- SEARCH -->
          <div class = "search-container"> 
             <div class = "search">
-                <input id = 'country-name-input' type="text" placeholder='Enter country name'>
+                <input id = 'country-name-input' type="text" placeholder='Enter country name' onkeydown= "searchCountry()">
                 <i class="fas fa-search" onclick = "searchCountry()"></i>
             </div>
         </div>

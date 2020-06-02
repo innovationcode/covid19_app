@@ -5,7 +5,7 @@ var country_Data = []
 var x = document.getElementById("myAudio"); 
 function playAudio() { 
         x.play();
-        x.volume = 0.5; 
+        x.volume = 0.02; 
 } 
 
 //fetch data to have records for countries...
@@ -45,7 +45,7 @@ async function worldCount() {
                 console.log("WWWW  : ", worldCount)
                 globalInfoWindow.innerHTML = 
                         `<div class = "global-info-window">
-                                <h1>
+                                <h1 style = "padding: 30px 0px">
                                         Total affected countries : ${worldCount.total_affected_countries}
                                 </h1>
                                 <h3>

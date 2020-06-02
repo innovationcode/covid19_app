@@ -89,6 +89,9 @@ body {
     text-align:center;
     transition: all 0.2s;
     cursor: pointer;
+    font-size: 15px;
+    letter-spacing: 2.2px;
+    font-weight: 550;
 }
 
 button:hover{
@@ -177,7 +180,7 @@ input::placeholder { /* Most modern browsers support this now. */
 }
 
 .country-container-background:hover {
-    background-color: rgb(231, 211, 211);
+    background-color:#dfd2ae;
 }
 
 .country-container {

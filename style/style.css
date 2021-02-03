@@ -95,7 +95,8 @@ body {
 }
 
 button:hover{
-    background-color:#f64842;
+    background-color:#423636;
+    transform: scale(1.2);
 }
 
 button:focus {
@@ -192,6 +193,7 @@ input::placeholder { /* Most modern browsers support this now. */
     padding-right: 20px;
     flex-grow: 1;
     overflow-y: scroll;
+    cursor: pointer;
 }
 
 ::-webkit-scrollbar {
@@ -199,6 +201,7 @@ input::placeholder { /* Most modern browsers support this now. */
     border: 0.5px solid grey;
     border-radius: 40px;
 }
+
 ::-webkit-scrollbar-thumb {
     background: red;
     border-radius: 30px;
@@ -206,9 +209,12 @@ input::placeholder { /* Most modern browsers support this now. */
 }
 
 .country-name {
-    margin-top: 30px;
+    margin-top: 15px;
     font-size: 21px;
-    color: #514C4C;
+    color: #fa5a54;
+    font-size: 30px;
+    font-weight: 500;
+    margin-bottom: 10px;
 }
 
 .store-phone-number {
@@ -233,5 +239,15 @@ input::placeholder { /* Most modern browsers support this now. */
     justify-content: center;
     align-items: center;
     font-size: small;
+    font-size: small;
+    margin-left: 120px;
+}
+
+.store-address span {
+    display: block;
+}
+
+.store-info-container {
+    flex-grow: 1;
 }
 

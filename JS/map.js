@@ -154,12 +154,19 @@ function initMap() {
 /**************** showMarkers ******************/
 function showMarkers() {
     country_Data.forEach(function(country) {
-        var latLng = new google.maps.LatLng(
-            country.latitude,
-            country.longitude
-        );
-        var country_code = country.country_code.toUpperCase();
         var countryName = country.location;
+        if(countryName === 'Togo') {
+            var latLng = new google.maps.LatLng(
+                8.6195, 
+                0.8248
+            );
+        } else {
+            var latLng = new google.maps.LatLng(
+                country.latitude,
+                country.longitude
+            );
+        }    
+        var country_code = country.country_code.toUpperCase();
         var confirmed = country.confirmed;
         var recovered = country.recovered;
         var dead = country.dead;
@@ -204,7 +211,7 @@ function createMarker(latlng, country_code, name, confirmed, recovered, dead, up
         label: {
             text:`${country_code}`,
             color: 'white',
-            fontWeight: 'bold',
+            fontWeight: '500',
         },
         icon: image
 
@@ -280,28 +287,34 @@ function displayCountries(foundCountry) {
 // Function to close country container displaying search results
 function closeCountryContainer() {
     document.querySelector('.country-list-container').style.display = 'none';
-    map.setZoom(5);
+    //map.setZoom(5);
 }
 
 function setOnClickListener() {
-    var storeElements = document.querySelectorAll('.country-container');
-    console.log("setOnClickListener  :  ", storeElements)
-    storeElements.forEach(function(element, index) {
-        console.log(element, "++++++++++++++++++++++++++++++++++++++++")
+    var searchElements = document.querySelectorAll('.country-container');
+    searchElements.forEach(function(element, index) {
         element.addEventListener('click', function() {
             var countryCodeFromEvent = element.querySelector('.store-number').innerHTML.toLowerCase();
             countryCodeFromEvent = countryCodeFromEvent.replace(/\s/g, '');
     
             var countryForMarkerEvent = foundCountry.filter(country => country.country_code === countryCodeFromEvent);
-            console.log(countryForMarkerEvent)
+            //console.log(countryForMarkerEvent)
             var indexForClickCountry = country_Data.findIndex(dt => dt.country_code === countryCodeFromEvent);
-            console.log("indexForClickCountry : ", indexForClickCountry)
+            //console.log("indexForClickCountry : ", indexForClickCountry)
             
             new google.maps.event.trigger(markers[indexForClickCountry], 'click' );
+
+            //onclicking particular country should close search result display-container
+            document.querySelector('.country-list-container').style.display = 'none';
+
             var bounds = new google.maps.LatLngBounds(); //bounds spreads the marker '
-            //map.setCenter(bounds);
             map.fitBounds(bounds);
-            map.setZoom(6);
+            map.setZoom(5);
+
+            var latitude = country_Data[indexForClickCountry].latitude;
+            var longitude = country_Data[indexForClickCountry].longitude;
+            var latlng = new google.maps.LatLng(latitude, longitude);
+            map.setCenter(latlng)
         })
     });
 }

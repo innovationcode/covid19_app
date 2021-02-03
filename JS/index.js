@@ -5,7 +5,7 @@ var country_Data = []
 var x = document.getElementById("myAudio"); 
 function playAudio() { 
         x.play();
-        x.volume = 0.02; 
+        x.volume = 0.0133; 
 } 
 
 //fetch data to have records for countries...
@@ -22,7 +22,9 @@ async function worldCount() {
         var worldCount = {}
         console.log("In WorldCount")
 
-        await fetch("https://api.thevirustracker.com/free-api?global=stats", {
+
+        //await fetch("https://api.thevirustracker.com/free-api?global=stats", {
+        await fetch("https://api.covid19api.com/summary", {
                 method: "GET"
         })
         .catch((err) => {
@@ -32,7 +34,7 @@ async function worldCount() {
                 if (res.ok) {
                         res.json().then((json) => {
                                // console.log("RESPONSE  : ",json.results[0]),
-                                worldCount = json.results[0];
+                                worldCount = json.Global;
                                 console.log("worldCount   :  ",worldCount)
                         });
                 } else {
@@ -46,28 +48,28 @@ async function worldCount() {
                 globalInfoWindow.innerHTML = 
                         `<div class = "global-info-window">
                                 <h1 style = "padding: 30px 0px">
-                                        Total affected countries : ${worldCount.total_affected_countries}
+                                        Almost all countries affected.
                                 </h1>
                                 <h3>
-                                        Total cases  : ${worldCount.total_cases}
+                                        Total cases  : ${worldCount.TotalConfirmed}
                                 </h3>
                                 <h3>
-                                        Recovered   : ${worldCount.total_recovered}
+                                        Recovered   : ${worldCount.TotalRecovered}
                                 </h3>
                                 <h3>
-                                        Death  : ${worldCount.total_deaths}
+                                        Death  : ${worldCount.TotalDeaths}
                                 </h3>
                                 <h3>
                                         Total active cases   : ${worldCount.total_active_cases}
                                 </h3>
                                 <h3>
-                                        Total new cases today   : ${worldCount.total_new_cases_today}
+                                        Total new cases today   : ${worldCount.NewConfirmed}
                                 </h3>
                                 <h3>
-                                        Total new deaths today  : ${worldCount.total_new_deaths_today}
+                                        Total new deaths today  : ${worldCount.NewDeaths}
                                 </h3>
                                 <div style = "font-size: 14px; margin-bottom : 5px; margin-right:7px;">
-                                        Updated On  : ${country_Data[0].updated.substring(0,10)}
+                                        Updated On  : ${worldCount.Date.substring(0,10)}
                                 </div>
                                 <button onclick="buttonClick();"> Close </button>
                         </div>  
